@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import FeatureSection from './components/FeatureSection';
 import ProductSection from './components/ProductSection';
 import Footer from './components/Footer';
+import TripleBannerSection from './components/TripleBannerSection';
 import './index.css'; // Importamos CSS directamente
 
 // Definimos un componente de estilo global para asegurar que los colores se apliquen correctamente
@@ -40,9 +41,11 @@ function App() {
       {/* Componentes principales */}
       <Navbar />
       <Hero />
+      < TripleBannerSection/>
       <FeatureSection />
       <ProductSection />
       <Footer />
+      
     </div>
   );
 }
