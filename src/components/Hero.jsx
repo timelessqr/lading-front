@@ -1,13 +1,14 @@
 // Hero.jsx
 import { motion } from 'framer-motion';
-import headstoneImage from '../assets/images/headstone-qr.JPG';
+import headstoneImage from '../assets/images/headstone-qr.jpeg';
 
 const Hero = () => {
   return (
     <section className="relative h-screen flex items-center overflow-hidden">
       {/* Mantenemos la imagen como fondo con animación */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+        {/* Overlay menos oscuro para que se vea más la imagen */}
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
         <motion.div
           initial={{ scale: 1.0 }}
           animate={{ 
@@ -42,8 +43,8 @@ const Hero = () => {
             Preserva la memoria de tus seres queridos con nuestros códigos QR para lápidas. Un simple escaneo conecta con recuerdos, historias y legados.
           </p>
           <motion.a 
-            href="#" 
-            className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg"
+            href="#productos" 
+            className="inline-block bg-primary hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
