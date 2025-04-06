@@ -1,6 +1,7 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 // Asegúrate de que tu proyecto esté ejecutando "npx tailwindcss init -p" si acabas de instalar Tailwind
+
 export default {
   content: [
     "./index.html",
@@ -31,6 +32,16 @@ export default {
       fontFamily: {
         // Configura Rubik como la fuente sans-serif por defecto
         rubik: ['Rubik', 'sans-serif'],
+      },
+      // --- Animaciones para el footer ---
+      animation: {
+        'wave': 'wave 6s ease-in-out infinite alternate',
+      },
+      keyframes: {
+        wave: {
+          '0%': { transform: 'translateX(-10px)' },
+          '100%': { transform: 'translateX(10px)' },
+        }
       },
     },
   },
