@@ -3,47 +3,39 @@
 // Asegúrate de que tu proyecto esté ejecutando "npx tailwindcss init -p" si acabas de instalar Tailwind
 
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", 
-  ],
   theme: {
     extend: {
-      // --- Paleta de Colores ---
       colors: {
-        // Color principal y sus variaciones
+        // Tu color primario verde ya existente
         'primary': '#4B5F44',
-        'primary-50': '#F5F7F4',
-        'primary-100': '#E0E5DE',
-        'primary-200': '#C2CCC0',
-        'primary-300': '#A3B2A0',
-        'primary-400': '#859980',
-        'primary-500': '#677F61',
-        'primary-600': '#4B5F44', // Idéntico al primary base
-        'primary-700': '#3D4C38', // Más oscuro para hover
-        'primary-800': '#2E3A2A',
-        'primary-900': '#1F271C',
+        // ... tus variaciones primarias ...
         
-        // Textos
-        'brand-text-light': '#FFFFFF', // Texto para usar sobre fondos oscuros
-        'brand-text-dark': '#333333',  // Texto para usar sobre fondos claros
-      },
-      // --- Fuentes ---
-      fontFamily: {
-        // Configura Rubik como la fuente sans-serif por defecto
-        rubik: ['Rubik', 'sans-serif'],
-      },
-      // --- Animaciones para el footer ---
-      animation: {
-        'wave': 'wave 6s ease-in-out infinite alternate',
-      },
-      keyframes: {
-        wave: {
-          '0%': { transform: 'translateX(-10px)' },
-          '100%': { transform: 'translateX(10px)' },
-        }
-      },
-    },
-  },
-  plugins: [],
+        // Color secundario: Marrón cálido tierra (complementa bien con el verde para memoriales)
+        'secondary': '#8A7968',
+        'secondary-50': '#F7F5F3',
+        'secondary-100': '#E9E5E1',
+        'secondary-200': '#D3CCC4',
+        'secondary-300': '#BDB3A7',
+        'secondary-400': '#A79989',
+        'secondary-500': '#8A7968',
+        'secondary-600': '#6F6154',
+        'secondary-700': '#544A40',
+        'secondary-800': '#39332C',
+        'secondary-900': '#1F1C18',
+        
+        // Color de acento: Dorado apagado (para detalles elegantes, simboliza permanencia)
+        'accent': '#C4B08C',
+        'accent-50': '#FAF8F4',
+        'accent-100': '#F0EAE0',
+        'accent-200': '#E1D6C1',
+        'accent-300': '#D2C3A2',
+        'accent-400': '#C4B08C',
+        'accent-500': '#B39D73',
+        'accent-600': '#9C855A',
+        'accent-700': '#7D6B48',
+        'accent-800': '#5E5036',
+        'accent-900': '#3F3624',
+      }
+    }
+  }
 }

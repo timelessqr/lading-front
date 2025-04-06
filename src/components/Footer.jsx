@@ -87,7 +87,7 @@ const Footer = () => {
             <div>
               <h4 className="text-base font-bold mb-2">Descubre más</h4>
               <ul className="space-y-1">
-                <li><a href="#" className="hover:text-gray-300 transition-colors">Códigos QR Ricoordami</a></li>
+                <li><a href="#" className="hover:text-gray-300 transition-colors">Códigos QR</a></li>
                 <li><a href="#" className="hover:text-gray-300 transition-colors">Cómo funciona</a></li>
                 <li><a href="#" className="hover:text-gray-300 transition-colors">Quiénes somos</a></li>
                 <li><a href="#" className="hover:text-gray-300 transition-colors">Preguntas frecuentes</a></li>
