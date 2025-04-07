@@ -3,14 +3,44 @@
 // Asegúrate de que tu proyecto esté ejecutando "npx tailwindcss init -p" si acabas de instalar Tailwind
 
 export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
-        // Tu color primario verde ya existente
-        'primary': '#4B5F44',
-        // ... tus variaciones primarias ...
+        // Nuevos colores primarios
+        'primary': {
+          DEFAULT: '#FFFFFF',  // Blanco como color principal
+          '50': '#FFFFFF',
+          '100': '#F5F5F5',
+          '200': '#EEEEEE',
+          '300': '#E0E0E0',
+          '400': '#BDBDBD',
+          '500': '#9E9E9E',
+          '600': '#757575',
+          '700': '#616161',
+          '800': '#424242',
+          '900': '#212121',
+        },
         
-        // Color secundario: Marrón cálido tierra (complementa bien con el verde para memoriales)
+        // Azul como color complementario (reemplaza al verde)
+        'blue': {
+          DEFAULT: '#2B4D8C',  // Azul elegante
+          '50': '#F2F5FA',
+          '100': '#D9E2F3',
+          '200': '#B3C6E7',
+          '300': '#8CAADB',
+          '400': '#668ECF',
+          '500': '#4072C4',
+          '600': '#2B4D8C',  // Color principal azul
+          '700': '#1F3A6C',
+          '800': '#14274D',
+          '900': '#0A142D',
+        },
+        
+        // Color secundario: Marrón cálido tierra (complementa bien)
         'secondary': '#8A7968',
         'secondary-50': '#F7F5F3',
         'secondary-100': '#E9E5E1',
@@ -23,7 +53,7 @@ export default {
         'secondary-800': '#39332C',
         'secondary-900': '#1F1C18',
         
-        // Color de acento: Dorado apagado (para detalles elegantes, simboliza permanencia)
+        // Color de acento: Dorado apagado (para detalles elegantes)
         'accent': '#C4B08C',
         'accent-50': '#FAF8F4',
         'accent-100': '#F0EAE0',
@@ -37,5 +67,6 @@ export default {
         'accent-900': '#3F3624',
       }
     }
-  }
+  },
+  plugins: [],
 }

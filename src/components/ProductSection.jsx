@@ -2,7 +2,7 @@
 import qr1 from '../assets/images/qr1.jpg';
 import qr2 from '../assets/images/qr2.jpg';
 import qr3 from '../assets/images/qr3.jpg';
-import logoBlanco from '../assets/images/negro.jpeg'; 
+import logoBlanco from '../assets/images/vector.svg'; 
 
 const ProductSection = () => {
   const products = [

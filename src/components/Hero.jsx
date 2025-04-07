@@ -1,6 +1,5 @@
 // Hero.jsx
 import { motion } from 'framer-motion';
-import headstoneImage from '../assets/images/headstone-qr.jpeg';
 import { FaArrowRight, FaInfoCircle, FaUsers } from 'react-icons/fa';
 
 // Estilos para las sombras de texto
@@ -25,9 +24,9 @@ const Hero = () => {
       {/* Estilos de sombra de texto */}
       <style dangerouslySetInnerHTML={{ __html: textShadowStyles }} />
       
-      {/* Mantenemos la imagen como fondo con animación */}
+      {/* Video de fondo */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Overlay menos oscuro para que se vea más la imagen */}
+        {/* Overlay menos oscuro para que se vea más el video */}
         <div className="absolute inset-0 bg-black/40 z-10"></div>
         <motion.div
           initial={{ scale: 1.0 }}
@@ -42,11 +41,17 @@ const Hero = () => {
           }}
           className="h-full w-full"
         >
-          <img 
-            src={headstoneImage} 
-            alt="Código QR en lápida de mármol" 
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
             className="w-full h-full object-cover"
-          />
+            poster="/images/headstone-qr.jpeg"
+          >
+            <source src="/videos/demo.mp4" type="video/mp4" />
+            Tu navegador no soporta videos HTML5.
+          </video>
         </motion.div>
       </div>
       
