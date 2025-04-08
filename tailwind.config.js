@@ -1,6 +1,6 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-// Asegúrate de que tu proyecto esté ejecutando "npx tailwindcss init -p" si acabas de instalar Tailwind
+
 
 export default {
   content: [
@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Nuevos colores primarios
+        
         'primary': {
           DEFAULT: '#FFFFFF',  // Blanco como color principal
           '50': '#FFFFFF',
@@ -25,16 +25,16 @@ export default {
           '900': '#212121',
         },
         
-        // Azul como color complementario (reemplaza al verde)
+       
         'blue': {
-          DEFAULT: '#2B4D8C',  // Azul elegante
+          DEFAULT: '#2B4D8C',  
           '50': '#F2F5FA',
           '100': '#D9E2F3',
           '200': '#B3C6E7',
           '300': '#8CAADB',
           '400': '#668ECF',
           '500': '#4072C4',
-          '600': '#2B4D8C',  // Color principal azul
+          '600': '#2B4D8C',  
           '700': '#1F3A6C',
           '800': '#14274D',
           '900': '#0A142D',
