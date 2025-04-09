@@ -26,7 +26,7 @@ const Footer = () => {
   return (
     <div className="relative">
       {/* Contenedor con posición relativa para todo el footer */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden bg-white">
         {/* Altura reducida en móviles para las olas */}
         <div className="relative h-12 md:h-16">
           <Wave 

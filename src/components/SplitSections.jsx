@@ -16,8 +16,8 @@ const SplitSection = ({
       <div className="container mx-auto px-4">
         <div className={`flex flex-col ${imageLeft ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}>
           
-          {/* Contenido de texto */}
-          <div className="w-full md:w-3/5 lg:w-2/3">
+          {/* Contenido de texto - centrado en todas las resoluciones */}
+          <div className="w-full md:w-3/5 lg:w-2/3 text-center">
             <h2 className={`text-3xl font-bold mb-6 uppercase ${titleColor}`}>{title}</h2>
             <div className="mb-6 text-gray-700">{description}</div>
             {ctaButton && ctaButton}
