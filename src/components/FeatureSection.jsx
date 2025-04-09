@@ -92,11 +92,11 @@ const FeatureSection = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-primary-50 to-white" ref={sectionRef}>
+    <section className="py-24 bg-gradient-to-b from-blue-50 to-white" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary-700 mb-4">Nuestras Características</h2>
-          <div className="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
+          <h2 className="text-4xl font-bold text-blue-600 mb-4">Nuestras Características</h2>
+          <div className="w-24 h-1 bg-blue-500 mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Descubre por qué nuestros códigos QR conmemorativos son la elección perfecta para honrar la memoria de tus seres queridos.
           </p>
@@ -106,14 +106,14 @@ const FeatureSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-2 opacity-0 border-t-2 border-primary-100 hover:border-primary-300"
+              className="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-2 opacity-0 border-t-2 border-blue-100 hover:border-blue-300"
               style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'forwards' }}
             >
               <div className="flex justify-center mb-6">
                 <Icon name={feature.icon} />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-primary-700">{feature.title}</h3>
-              <p className="text-brand-text-dark leading-relaxed">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-blue-600 text-center">{feature.title}</h3>
+              <p className="text-gray-600 leading-relaxed text-center">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -142,20 +142,20 @@ const FeatureSection = () => {
           width: 70px;
           height: 70px;
           border-radius: 50%;
-          background-color: rgba(75, 95, 68, 0.1);
+          background-color: rgba(43, 77, 140, 0.1); /* Azul blue-600 con opacidad */
           transition: all 0.3s ease;
         }
         
         .feature-card:hover .icon-container {
           transform: scale(1.1);
-          background-color: rgba(75, 95, 68, 0.2);
-          box-shadow: 0 0 20px rgba(103, 127, 97, 0.3);
+          background-color: rgba(43, 77, 140, 0.2); /* Azul blue-600 con opacidad */
+          box-shadow: 0 0 20px rgba(43, 77, 140, 0.3); /* Azul blue-600 con opacidad */
         }
         
         .icon {
           width: 32px;
           height: 32px;
-          color: #677F61;
+          color: #2B4D8C; /* Azul blue-600 */
           transition: all 0.3s ease;
         }
         

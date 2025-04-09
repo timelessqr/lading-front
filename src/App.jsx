@@ -2,7 +2,7 @@
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import SplitSections from './components/SplitSections';
-//import FeatureSection from './components/FeatureSection'; // Correcto, comentado si no se usa
+import FeatureSection from './components/FeatureSection'; // Correcto, comentado si no se usa
 //import ProductSection from './components/ProductSection'; // Correcto, comentado si no se usa
 import Footer from './components/Footer';
 //import TripleBannerSection from './components/TripleBannerSection'; // Correcto, comentado si no se usa
@@ -16,7 +16,7 @@ function App() {
       <SplitSections />
       {/* Ahora sí están comentados y no se renderizarán: */}
       {/* <TripleBannerSection /> */}
-      {/* <FeatureSection /> */}
+      <FeatureSection /> 
       {/* <ProductSection /> */}
       <Footer />
     </div>

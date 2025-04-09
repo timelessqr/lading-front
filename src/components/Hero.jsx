@@ -63,9 +63,9 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-shadow-lg">Códigos QR: Conexión Eterna con tus Seres Queridos</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-shadow-lg">Mantén Viva Su Memoria Con Nuestros Códigos QR</h1>
           <p className="text-xl mb-8 text-shadow-md">
-            Preserva la memoria de tus seres queridos con nuestros códigos QR para lápidas. Un simple escaneo conecta con recuerdos, historias y legados.
+            Lazos de Vida transforma la manera de honrar a tus seres queridos. Cada código QR es una puerta digital a sus recuerdos, historias y momentos más preciados.
           </p>
           
           {/* Badge de confianza */}
@@ -75,9 +75,9 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <div className="bg-black/50 backdrop-blur-sm px-5 py-3 rounded-full inline-flex items-center shadow-lg border border-white/30">
-              <FaUsers className="text-primary-100 mr-3 text-lg" />
-              <span className="text-sm font-bold text-shadow-md">Más de 1,000 familias confían en nosotros</span>
+            <div className="bg-blue-600/30 backdrop-blur-sm px-5 py-3 rounded-full inline-flex items-center shadow-lg border border-white/30">
+              <FaUsers className="text-white mr-3 text-lg" />
+              <span className="text-sm font-bold text-shadow-md">Miles de familias ya han creado su Lazo de Vida</span>
             </div>
           </motion.div>
           
@@ -86,11 +86,11 @@ const Hero = () => {
             {/* Botón principal mejorado */}
             <motion.a 
               href="#productos" 
-              className="flex items-center justify-center bg-primary hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-lg transition-colors shadow-xl w-full sm:w-auto text-shadow-md border-2 border-white/30"
+              className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-colors shadow-xl w-full sm:w-auto text-shadow-md border-2 border-white/30"
               whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.3)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="mr-2 text-base">Conoce Nuestros Productos</span>
+              <span className="mr-2 text-base">Crea Tu Lazo de Vida</span>
               <motion.span
                 animate={{ x: [0, 4, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, repeatType: "loop" }}
@@ -107,7 +107,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
             >
               <FaInfoCircle className="mr-2" />
-              <span className="text-base">¿Cómo Funciona?</span>
+              <span className="text-base">Cómo Funciona</span>
             </motion.a>
           </div>
           
@@ -118,8 +118,8 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
           >
-            <a href="#contacto" className="inline-block bg-black/40 hover:bg-black/60 px-4 py-2 rounded-full text-white hover:text-primary-100 transition-colors text-shadow-md font-medium border border-white/30">
-              ¿Preguntas? Contáctanos ahora
+            <a href="#contacto" className="inline-block bg-black/40 hover:bg-black/60 px-4 py-2 rounded-full text-white hover:text-blue-100 transition-colors text-shadow-md font-medium border border-white/30">
+              ¿Dudas? Contáctanos
             </a>
           </motion.div>
         </motion.div>
