@@ -1,8 +1,15 @@
 // Hero.jsx
+import React, { useState, useRef, useEffect } from 'react'; // <--- Asegúrate que useEffect esté importado
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaInfoCircle, FaUsers } from 'react-icons/fa';
+import {
+  FaArrowRight,
+  FaInfoCircle,
+  FaUsers,
+  FaVolumeUp,
+  FaVolumeMute
+} from 'react-icons/fa';
 
-// Estilos para las sombras de texto
+// Estilos para las sombras de texto (sin cambios aquí)
 const textShadowStyles = `
   .text-shadow-lg {
     text-shadow: 0 2px 4px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.7);
@@ -19,57 +26,136 @@ const textShadowStyles = `
 `;
 
 const Hero = () => {
+  
+  const videoUrl = "https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/news.mp4"; 
+
+  const videoRef = useRef(null);
+  const [isMutedByUser, setIsMutedByUser] = useState(true);
+
+  // --- INICIO: Lógica añadida para Control de Volumen ---
+  const [volume, setVolume] = useState(0.7); // Estado para nivel de volumen (70% por defecto)
+
+  // Efecto para asegurar volumen inicial
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = volume;
+    }
+  }, []); // Solo al montar
+
+  // Función para Mute/Unmute (ligeramente ajustada)
+  const handleToggleMute = () => {
+    const nextMutedState = !isMutedByUser;
+    setIsMutedByUser(nextMutedState);
+    if (videoRef.current) {
+      videoRef.current.muted = nextMutedState;
+      if (!nextMutedState) {
+         videoRef.current.volume = volume; // Asegurar volumen al desmutear
+      }
+    }
+  };
+
+  // Función para manejar cambio de VOLUMEN desde el slider
+  const handleVolumeChange = (event) => {
+    const newVolume = parseFloat(event.target.value);
+    setVolume(newVolume);
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      // Desmutear si mueven el slider y estaba muteado
+      if (newVolume > 0 && videoRef.current.muted) {
+         setIsMutedByUser(false);
+         videoRef.current.muted = false;
+      }
+      // Actualizar icono si bajan a 0 o suben desde 0
+      if (newVolume === 0 && !isMutedByUser) {
+         setIsMutedByUser(true);
+      } else if (newVolume > 0 && isMutedByUser && !videoRef.current.muted) {
+         setIsMutedByUser(false);
+      }
+    }
+  };
+  // --- FIN: Lógica añadida para Control de Volumen ---
+
+
   return (
     <section className="relative h-screen flex items-center overflow-hidden">
       {/* Estilos de sombra de texto */}
       <style dangerouslySetInnerHTML={{ __html: textShadowStyles }} />
-      
+
       {/* Video de fondo */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Overlay menos oscuro para que se vea más el video */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/40 z-10"></div>
+        {/* Contenedor de video con animación */}
         <motion.div
-          initial={{ scale: 1.0 }}
-          animate={{ 
-            scale: 1.05,
-            y: [0, -10, 0], 
-          }}
-          transition={{ 
-            duration: 20, 
-            repeat: Infinity, 
-            repeatType: "reverse" 
-          }}
-          className="h-full w-full"
+           initial={{ scale: 1.0 }}
+           animate={{
+             scale: 1.05,
+             y: [0, -10, 0],
+           }}
+           transition={{
+             duration: 20,
+             repeat: Infinity,
+             repeatType: "reverse"
+           }}
+           className="h-full w-full"
         >
-          <video 
-            autoPlay 
-            muted 
-            loop 
+          <video
+            ref={videoRef}
+            key={videoUrl}
+            autoPlay
+            muted
+            loop
             playsInline
             className="w-full h-full object-cover"
             poster="/images/headstone-qr.jpeg"
+            src={videoUrl}
           >
-            <source src="/videos/demo.mp4" type="video/mp4" />
             Tu navegador no soporta videos HTML5.
           </video>
         </motion.div>
       </div>
-      
-      {/* Contenido con animación de entrada */}
+
+      {/* --- INICIO: Controles de Audio AGRUPADOS con Slider --- */}
+      <div className="absolute bottom-5 right-5 z-30 flex items-center space-x-3 p-2 bg-black/30 rounded-lg border border-white/20 backdrop-blur-sm">
+          {/* Botón Mute/Unmute */}
+          <button
+            onClick={handleToggleMute}
+            className="text-white hover:text-gray-300 focus:outline-none transition-colors"
+            aria-label={isMutedByUser ? "Activar sonido" : "Silenciar"}
+          >
+            {(isMutedByUser || volume === 0) ? <FaVolumeMute size={18} /> : <FaVolumeUp size={18} />}
+          </button>
+
+          {/* Slider de Volumen */}
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.05"
+            value={isMutedByUser ? 0 : volume} // Slider va a 0 si está muteado
+            onChange={handleVolumeChange}
+            className="w-20 h-1.5 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            aria-label="Control de volumen"
+          />
+      </div>
+      {/* --- FIN: Controles de Audio AGRUPADOS con Slider --- */}
+
+      {/* Contenido del Hero (Texto, Botones, etc.) */}
       <div className="container mx-auto px-4 relative z-20">
-        <motion.div 
+        <motion.div
           className="max-w-3xl mx-auto text-center text-white mt-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
+          {/* Todo tu contenido central va aquí, sin abreviar */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-shadow-lg">Mantén Viva Su Memoria Con Nuestros Códigos QR</h1>
           <p className="text-xl mb-8 text-shadow-md">
             Lazos de Vida transforma la manera de honrar a tus seres queridos. Cada código QR es una puerta digital a sus recuerdos, historias y momentos más preciados.
           </p>
-          
+
           {/* Badge de confianza */}
-          <motion.div 
+          <motion.div
             className="mb-8 flex justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -80,12 +166,12 @@ const Hero = () => {
               <span className="text-sm font-bold text-shadow-md">Miles de familias ya han creado su Lazo de Vida</span>
             </div>
           </motion.div>
-          
+
           {/* Botones CTA */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             {/* Botón principal mejorado */}
-            <motion.a 
-              href="#productos" 
+            <motion.a
+              href="#productos"
               className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-colors shadow-xl w-full sm:w-auto text-shadow-md border-2 border-white/30"
               whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.3)" }}
               whileTap={{ scale: 0.95 }}
@@ -98,10 +184,10 @@ const Hero = () => {
                 <FaArrowRight />
               </motion.span>
             </motion.a>
-            
+
             {/* Botón secundario */}
-            <motion.a 
-              href="#como-funciona" 
+            <motion.a
+              href="#como-funciona"
               className="flex items-center justify-center bg-black/50 hover:bg-black/70 border-2 border-white/50 text-white font-bold py-4 px-8 rounded-lg transition-colors shadow-lg w-full sm:w-auto text-shadow-md"
               whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.3)" }}
               whileTap={{ scale: 0.95 }}
@@ -110,9 +196,9 @@ const Hero = () => {
               <span className="text-base">Cómo Funciona</span>
             </motion.a>
           </div>
-          
+
           {/* Mini CTA */}
-          <motion.div 
+          <motion.div
             className="mt-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
