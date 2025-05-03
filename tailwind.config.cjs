@@ -1,4 +1,3 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 
 module.exports = { 
@@ -8,8 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        lora: ['Lora', 'serif'] // Añadimos la fuente Lora
+      },
       colors: {
-        
         'primary': {
           DEFAULT: '#FFFFFF',  // Blanco como color principal
           '50': '#FFFFFF',
@@ -24,7 +25,6 @@ module.exports = {
           '900': '#212121',
         },
         
-       
         'blue': {
           DEFAULT: '#2B4D8C',  
           '50': '#F2F5FA',
@@ -39,7 +39,7 @@ module.exports = {
           '900': '#0A142D',
         },
         
-        // Color secundario: Marrón cálido tierra (complementa bien)
+        // Color secundario: Marrón cálido tierra
         'secondary': '#8A7968',
         'secondary-50': '#F7F5F3',
         'secondary-100': '#E9E5E1',
@@ -52,7 +52,7 @@ module.exports = {
         'secondary-800': '#39332C',
         'secondary-900': '#1F1C18',
         
-        // Color de acento: Dorado apagado (para detalles elegantes)
+        // Color de acento: Dorado apagado
         'accent': '#C4B08C',
         'accent-50': '#FAF8F4',
         'accent-100': '#F0EAE0',

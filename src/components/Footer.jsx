@@ -7,7 +7,10 @@ import logoImage from '../assets/images/derecho.png';
 const Footer = () => {
   // Estado para controlar cuál modal está abierto (null si ninguno está abierto)
   const [activeModal, setActiveModal] = useState(null);
-  
+
+  // URL WhatsApp con mensaje predefinido - MISMO DEL HERO
+  const whatsappUrl = "https://wa.me/5491166023362?text=Hola!%20Quisiera%20consultar%20sobre%20Lazos%20de%20Vida.";
+
   // CONFIGURACIÓN DEL LOGO: Ajusta estos valores para mover y redimensionar el logo
   const logoSize = {
     mobile: 'h-40',   // Tamaño intermedio para mobile
@@ -25,7 +28,7 @@ const Footer = () => {
       setOpenSection(section);
     }
   };
-  
+
   // Contenido del modal para cada sección
   const modalContent = {
     quienesSomos: {
@@ -52,7 +55,7 @@ const Footer = () => {
       <div className="relative overflow-hidden bg-white">
         {/* Altura reducida en móviles para las olas */}
         <div className="relative h-12 md:h-16">
-          <Wave 
+          <Wave
             fill="rgba(183, 198, 231, 0.6)"
             paused={false}
             options={{
@@ -64,10 +67,10 @@ const Footer = () => {
             className="absolute w-full h-full"
           />
         </div>
-        
+
         {/* Segunda capa de ola - reducida en móvil */}
         <div className="absolute top-4 md:top-6 left-0 right-0 h-12 md:h-16">
-          <Wave 
+          <Wave
             fill="rgba(183, 198, 231, 0.8)"
             paused={false}
             options={{
@@ -79,10 +82,10 @@ const Footer = () => {
             className="absolute w-full h-full"
           />
         </div>
-        
+
         {/* Tercera capa de ola - reducida en móvil */}
         <div className="absolute top-8 md:top-12 left-0 right-0 h-12 md:h-16">
-          <Wave 
+          <Wave
             fill="#B3C6E7"
             paused={false}
             options={{
@@ -94,43 +97,43 @@ const Footer = () => {
             className="absolute w-full h-full"
           />
         </div>
-        
+
         {/* Línea ondulada SVG */}
         <div className="absolute bottom-0 left-0 right-0 h-5 overflow-hidden">
-          <svg 
-            viewBox="0 0 1200 30" 
-            className="absolute w-full h-full" 
+          <svg
+            viewBox="0 0 1200 30"
+            className="absolute w-full h-full"
             preserveAspectRatio="none"
             style={{ bottom: -5 }}
           >
-            <path 
-              d="M0,20 Q300,40 600,20 T1200,20 V30 H0 Z" 
+            <path
+              d="M0,20 Q300,40 600,20 T1200,20 V30 H0 Z"
               fill="#FFFFFF"
               className="wavy-line"
             />
           </svg>
         </div>
       </div>
-      
+
       {/* Bloque logo flotante - con posicionamiento responsivo */}
       <div className="absolute z-10 left-1/2 transform -translate-x-1/2 md:left-8 md:transform-none" style={{ top: '40px', }}>
         <div className="transform hover:scale-110 transition-transform duration-300">
-          <img 
-            src={logoImage} 
-            alt="Lazos de Vida" 
-            className={`${logoSize.mobile} md:${logoSize.desktop} object-contain`}
+          <img
+            src={logoImage}
+            alt="Lazos de Vida"
+            className={`${logoSize.mobile} md:${logoSize.desktop} object-contain font-lora`}
           />
         </div>
       </div>
-      
+
       {/* Footer sin espacios ni márgenes con respecto a las olas */}
       <footer id="contacto" className="relative text-gray-900" style={{ backgroundColor: '#FFFFFF', marginTop: '-2px' }}>
-        
+
         <style jsx>{`
           .wavy-line {
             animation: wavyAnimation 6s ease-in-out infinite alternate;
           }
-          
+
           @keyframes wavyAnimation {
             0% {
               d: path("M0,20 Q300,45 600,15 T1200,20 V30 H0 Z");
@@ -147,23 +150,23 @@ const Footer = () => {
           }
         `}</style>
 
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 font-lora">
           {/* Versión móvil: Formato acordeón para las secciones */}
           <div className="md:hidden">
             {/* Espaciador para el logo centrado - aumentado para el logo más grande */}
             <div className="h-40 mb-4"></div>
-            
+
             {/* Sección Enlaces Rápidos (acordeón en móvil) */}
             <div className="border-b border-gray-200 py-2">
-              <button 
+              <button
                 onClick={() => toggleSection('descubre')}
                 className="flex justify-between items-center w-full py-2 text-left font-semibold"
               >
                 <span className="text-lg text-gray-900">Sobre Lazos de Vida</span>
-                <svg 
-                  className={`w-5 h-5 transition-transform ${openSection === 'descubre' ? 'transform rotate-180' : ''}`} 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className={`w-5 h-5 transition-transform ${openSection === 'descubre' ? 'transform rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -172,8 +175,8 @@ const Footer = () => {
               {openSection === 'descubre' && (
                 <ul className="space-y-2 py-2 pl-2">
                   <li>
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       className="text-gray-800 hover:text-black transition-colors"
                       onClick={(e) => {
                         e.preventDefault();
@@ -184,8 +187,8 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       className="text-gray-800 hover:text-black transition-colors"
                       onClick={(e) => {
                         e.preventDefault();
@@ -196,8 +199,8 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       className="text-gray-800 hover:text-black transition-colors"
                       onClick={(e) => {
                         e.preventDefault();
@@ -208,8 +211,8 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       className="text-gray-800 hover:text-black transition-colors"
                       onClick={(e) => {
                         e.preventDefault();
@@ -222,18 +225,18 @@ const Footer = () => {
                 </ul>
               )}
             </div>
-            
+
             {/* Sección Legal (acordeón en móvil) */}
             <div className="border-b border-gray-200 py-2">
-              <button 
+              <button
                 onClick={() => toggleSection('legal')}
                 className="flex justify-between items-center w-full py-2 text-left font-semibold"
               >
                 <span className="text-lg text-gray-900">Legal</span>
-                <svg 
-                  className={`w-5 h-5 transition-transform ${openSection === 'legal' ? 'transform rotate-180' : ''}`} 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className={`w-5 h-5 transition-transform ${openSection === 'legal' ? 'transform rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -248,18 +251,18 @@ const Footer = () => {
                 </ul>
               )}
             </div>
-            
+
             {/* Sección Contacto (acordeón en móvil) */}
             <div className="border-b border-gray-200 py-2">
-              <button 
+              <button
                 onClick={() => toggleSection('contacto')}
                 className="flex justify-between items-center w-full py-2 text-left font-semibold"
               >
                 <span className="text-lg text-gray-900">Contacto</span>
-                <svg 
-                  className={`w-5 h-5 transition-transform ${openSection === 'contacto' ? 'transform rotate-180' : ''}`} 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className={`w-5 h-5 transition-transform ${openSection === 'contacto' ? 'transform rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -273,27 +276,21 @@ const Footer = () => {
                     </svg>
                     <span className="text-gray-800">info@lazosdevida.com</span>
                   </div>
-                  <div className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <span className="text-gray-800">+54 123 456 7890</span>
-                  </div>
                 </div>
               )}
             </div>
-            
+
             {/* Sección Newsletter (acordeón en móvil) */}
             <div className="border-b border-gray-200 py-2">
-              <button 
+              <button
                 onClick={() => toggleSection('newsletter')}
                 className="flex justify-between items-center w-full py-2 text-left font-semibold"
               >
                 <span className="text-lg text-gray-900">Newsletter</span>
-                <svg 
-                  className={`w-5 h-5 transition-transform ${openSection === 'newsletter' ? 'transform rotate-180' : ''}`} 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className={`w-5 h-5 transition-transform ${openSection === 'newsletter' ? 'transform rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -309,7 +306,7 @@ const Footer = () => {
                       className="w-full px-3 py-2 rounded bg-white/90 border border-gray-400 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 text-sm"
                     />
                     <button
-                      className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm"
+                      className="w-full bg-blue text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm"
                     >
                       Suscribirse
                     </button>
@@ -317,8 +314,8 @@ const Footer = () => {
                 </div>
               )}
             </div>
-            
-            {/* Redes sociales (siempre visible en móvil) */}
+
+            {/* Redes sociales (siempre visible en móvil) - CÓDIGO ACTUALIZADO */}
             <div className="py-4 flex flex-col items-center">
               <h3 className="text-lg font-semibold mb-3 text-gray-900">Síguenos</h3>
               <div className="flex space-x-6">
@@ -334,27 +331,32 @@ const Footer = () => {
                 <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
                   <FaTiktok size={24} />
                 </a>
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
-                  <FaWhatsapp size={24} />
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-500 hover:text-green-600 transition-colors transform hover:scale-110 duration-200"
+                >
+                  <FaWhatsapp size={24} /> {/* Aseguramos que tenga el mismo tamaño */}
                 </a>
               </div>
             </div>
           </div>
-          
+
           {/* Versión de escritorio: grid normal */}
           <div className="hidden md:grid md:grid-cols-4 md:gap-8">
             {/* Espaciador invisible que ocupa el espacio del logo */}
             <div className="md:col-span-1">
               <div className="invisible h-48"></div>
             </div>
-            
+
             {/* Enlaces rápidos - Mostrando los cuatro enlaces */}
             <div className="md:col-span-1">
               <h3 className="text-lg font-semibold mb-4 text-gray-900">Sobre Lazos de Vida</h3>
               <ul className="space-y-2">
                 <li>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="text-gray-800 hover:text-black transition-colors"
                     onClick={(e) => {
                       e.preventDefault();
@@ -365,8 +367,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="text-gray-800 hover:text-black transition-colors"
                     onClick={(e) => {
                       e.preventDefault();
@@ -377,8 +379,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="text-gray-800 hover:text-black transition-colors"
                     onClick={(e) => {
                       e.preventDefault();
@@ -389,8 +391,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="text-gray-800 hover:text-black transition-colors"
                     onClick={(e) => {
                       e.preventDefault();
@@ -402,7 +404,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            
+
             {/* Legal y contacto */}
             <div className="md:col-span-1">
               <h3 className="text-lg font-semibold mb-4 text-gray-900">Legal</h3>
@@ -412,7 +414,7 @@ const Footer = () => {
                 <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Privacidad</a></li>
                 <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Términos del servicio</a></li>
               </ul>
-              
+
               <h3 className="text-lg font-semibold mt-6 mb-3 text-gray-900">Contacto</h3>
               <div className="space-y-2">
                 <div className="flex items-center">
@@ -421,15 +423,9 @@ const Footer = () => {
                   </svg>
                   <span className="text-gray-800">info@lazosdevida.com</span>
                 </div>
-                <div className="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span className="text-gray-800">+54 123 456 7890</span>
-                </div>
               </div>
             </div>
-            
+
             {/* Newsletter y redes sociales */}
             <div className="md:col-span-1">
               <h3 className="text-lg font-semibold mb-4 text-gray-900">¡Suscríbete a la Newsletter!</h3>
@@ -441,13 +437,14 @@ const Footer = () => {
                   className="w-full px-3 py-2 rounded bg-white/90 border border-gray-400 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 text-sm"
                 />
                 <button
-                  className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm"
+                  className="w-full bg-blue text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm"
                 >
                   Suscribirse
                 </button>
               </div>
-              
+
               <h3 className="text-lg font-semibold mt-6 mb-3 text-gray-900">Síguenos</h3>
+              {/* Redes sociales (escritorio) - CÓDIGO ACTUALIZADO */}
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
                   <FaFacebook size={20} />
@@ -461,13 +458,18 @@ const Footer = () => {
                 <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
                   <FaTiktok size={20} />
                 </a>
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
-                  <FaWhatsapp size={20} />
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-500 hover:text-green-600 transition-colors transform hover:scale-110 duration-200"
+                >
+                  <FaWhatsapp size={20} /> {/* Aseguramos que tenga el mismo tamaño */}
                 </a>
               </div>
             </div>
           </div>
-          
+
           {/* Métodos de pago (centrados) y copyright - versión responsive */}
           <div className="mt-6 md:mt-8 border-t border-gray-300 pt-4 md:pt-6">
             {/* Métodos de pago centrados y con tamaño ligeramente reducido en móvil */}
@@ -480,7 +482,7 @@ const Footer = () => {
                 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/paypal.svg" alt="PayPal" className="h-6 w-8 md:h-8 md:w-10 bg-white p-1 rounded hover:scale-110 hover:shadow-md transition-all duration-300" />
               </div>
             </div>
-            
+
             {/* Copyright - Centrado en móvil, justificado en escritorio */}
             <div className="flex flex-col md:flex-row justify-center md:justify-between items-center">
               <p className="text-xs md:text-sm text-gray-800 mb-2 md:mb-0 text-center md:text-left">
@@ -494,15 +496,15 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      
+
       {/* Modal dinámico para mostrar el contenido seleccionado */}
       {activeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
           <div className="bg-white rounded-lg shadow-xl w-full max-w-xl max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-900">{modalContent[activeModal].title}</h2>
-                <button 
+                <h2 className="text-2xl font-bold text-gray-900 font-lora">{modalContent[activeModal].title}</h2>
+                <button
                   onClick={() => setActiveModal(null)}
                   className="text-gray-500 hover:text-gray-700 focus:outline-none"
                 >
@@ -511,17 +513,17 @@ const Footer = () => {
                   </svg>
                 </button>
               </div>
-              
+
               <div className="space-y-4">
-                <p className="text-gray-700">
+                <p className="text-gray-700 font-lora">
                   {modalContent[activeModal].content}
                 </p>
               </div>
-              
+
               <div className="mt-6 flex justify-end">
                 <button
                   onClick={() => setActiveModal(null)}
-                  className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                  className="bg-blue text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors font-lora"
                 >
                   Cerrar
                 </button>

@@ -2,23 +2,23 @@
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import SplitSections from './components/SplitSections';
-import FeatureSection from './components/FeatureSection'; // Correcto, comentado si no se usa
-//import ProductSection from './components/ProductSection'; // Correcto, comentado si no se usa
+import FeatureSection from './components/FeatureSection'; 
 import Footer from './components/Footer';
-//import TripleBannerSection from './components/TripleBannerSection'; // Correcto, comentado si no se usa
 import './index.css';
+import WhatsAppButton from './components/WhatsAppButton'; // <-- 1. IMPORTA el nuevo componente
+import React from 'react';
 
 function App() {
   return (
-    <div className="min-h-screen font-rubik bg-gray-50">
+    <div className="min-h-screen font-rubik bg-gray-50"> {/* O el fragmento <>...</> si lo usas */}
       <Navbar />
       <Hero />
       <SplitSections />
-      {/* Ahora sí están comentados y no se renderizarán: */}
-      {/* <TripleBannerSection /> */}
-      <FeatureSection /> 
-      {/* <ProductSection /> */}
+      <FeatureSection />
       <Footer />
+
+      {/* 2. RENDERIZA el botón flotante aquí, usualmente al final */}
+      <WhatsAppButton />
     </div>
   );
 }
