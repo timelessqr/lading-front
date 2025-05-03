@@ -47,7 +47,7 @@ const SplitSections = () => {
           <div className="flex justify-center">
             <div className="rounded-lg shadow-xl overflow-hidden w-64 h-64 aspect-square transform transition-transform duration-300 hover:scale-105">
               <img 
-                src="/src/assets/images/qr1.jpg" 
+                src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/3.jpg" 
                 alt="Código QR memorial" 
                 className="w-full h-full object-cover" 
               />
@@ -63,19 +63,26 @@ const SplitSections = () => {
         }
       />
 
-      {/* Sección 2: Fácil de usar (video a la izquierda) */}
+      {/* Sección 2: Fácil de usar (imagen a la izquierda - no video) */}
       <SplitSection 
         imageLeft={true}
         backgroundColor="bg-blue-50/50"
         titleColor="text-blue-600"
         media={
           <div className="flex justify-center">
-            <div className="rounded-lg overflow-hidden shadow-xl w-64 h-48 aspect-video transform transition-transform duration-300 hover:scale-105">
-              {/* Puedes reemplazar esto con tu video real */}
-              <video className="w-full h-full object-cover" controls poster="/src/assets/images/qr2.jpg">
-                <source src="/path/to/your/video.mp4" type="video/mp4" />
-                Tu navegador no soporta videos HTML5.
-              </video>
+            {/* Contenedor cuadrado de 60x60 */}
+            <div className="rounded-lg overflow-hidden shadow-xl w-60 h-60 transform transition-transform duration-300 hover:scale-105">
+              {/* Imagen con posicionamiento ajustado para mostrar más hacia abajo */}
+              <img 
+                src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/1.jpg" 
+                alt="Código QR en uso" 
+                className="w-full h-full object-cover object-center" 
+                style={{ objectPosition: "center 25%" }} // Ajusta este valor para mover la imagen hacia abajo
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://via.placeholder.com/400x400?text=Lazos+de+Vida";
+                }}
+              />
             </div>
           </div>
         }

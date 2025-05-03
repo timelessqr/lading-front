@@ -5,6 +5,9 @@ import { FaXTwitter } from 'react-icons/fa6';
 import logoImage from '../assets/images/derecho.png';
 
 const Footer = () => {
+  // Estado para controlar cuál modal está abierto (null si ninguno está abierto)
+  const [activeModal, setActiveModal] = useState(null);
+  
   // CONFIGURACIÓN DEL LOGO: Ajusta estos valores para mover y redimensionar el logo
   const logoSize = {
     mobile: 'h-40',   // Tamaño intermedio para mobile
@@ -20,6 +23,26 @@ const Footer = () => {
       setOpenSection(null);
     } else {
       setOpenSection(section);
+    }
+  };
+  
+  // Contenido del modal para cada sección
+  const modalContent = {
+    quienesSomos: {
+      title: "Quienes Somos",
+      content: "Somos una empresa dedicada a la producción y desarrollo de biografías, historias y recuerdos pasmados digitalmente con el escaneo de código QR, nos dedicamos a construir memorias de seres queridos que no están en presencia física hoy, pero en los corazones de sus familiares y amigos perduran lazos y recuerdos que los unen, es por eso que a través de la impresión de una placa QR, los familiares podrán conectar por medio de recuerdos e historias de una forma digital con sus seres queridos fallecidos y mantener viva su historia."
+    },
+    mision: {
+      title: "Misión",
+      content: "Brindar la mejor experiencia digital a través del desarrollo de historias, recuerdos, biografías, diseñando un producto de alta calidad, una historia plasmada digitalmente que pueda HONRAR Y DEJAR un recuerdo imborrable en los corazones de todas las familias que perdieron un ser querido, revivir recuerdos, inspirar a través de historias."
+    },
+    vision: {
+      title: "Visión",
+      content: "Llegar a todas las familias de Chile, dejar una huella imborrable en los corazones de las personas con recuerdos que marquen para siempre sus vidas, lograr a través de una placa QR DIGITA PERSONALIZADO, el desarrollo de historias sentimientos, expresiones y muestras de cariño de familiares y amigos cercanos."
+    },
+    valores: {
+      title: "Valores",
+      content: "Calidad, innovación, compromiso, historia y pasión."
     }
   };
 
@@ -101,7 +124,7 @@ const Footer = () => {
       </div>
       
       {/* Footer sin espacios ni márgenes con respecto a las olas */}
-      <footer className="relative text-gray-900" style={{ backgroundColor: '#FFFFFF', marginTop: '-2px' }}>
+      <footer id="contacto" className="relative text-gray-900" style={{ backgroundColor: '#FFFFFF', marginTop: '-2px' }}>
         
         <style jsx>{`
           .wavy-line {
@@ -136,7 +159,7 @@ const Footer = () => {
                 onClick={() => toggleSection('descubre')}
                 className="flex justify-between items-center w-full py-2 text-left font-semibold"
               >
-                <span className="text-lg text-gray-900">Descubre más</span>
+                <span className="text-lg text-gray-900">Sobre Lazos de Vida</span>
                 <svg 
                   className={`w-5 h-5 transition-transform ${openSection === 'descubre' ? 'transform rotate-180' : ''}`} 
                   fill="none" 
@@ -148,11 +171,54 @@ const Footer = () => {
               </button>
               {openSection === 'descubre' && (
                 <ul className="space-y-2 py-2 pl-2">
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Códigos QR</a></li>
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Cómo funciona</a></li>
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Quiénes somos</a></li>
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Preguntas frecuentes</a></li>
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Contacto</a></li>
+                  <li>
+                    <a 
+                      href="#" 
+                      className="text-gray-800 hover:text-black transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveModal('quienesSomos');
+                      }}
+                    >
+                      Quiénes somos
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="#" 
+                      className="text-gray-800 hover:text-black transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveModal('mision');
+                      }}
+                    >
+                      Misión
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="#" 
+                      className="text-gray-800 hover:text-black transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveModal('vision');
+                      }}
+                    >
+                      Visión
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="#" 
+                      className="text-gray-800 hover:text-black transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveModal('valores');
+                      }}
+                    >
+                      Valores
+                    </a>
+                  </li>
                 </ul>
               )}
             </div>
@@ -282,15 +348,58 @@ const Footer = () => {
               <div className="invisible h-48"></div>
             </div>
             
-            {/* Enlaces rápidos */}
+            {/* Enlaces rápidos - Mostrando los cuatro enlaces */}
             <div className="md:col-span-1">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">Descubre más</h3>
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">Sobre Lazos de Vida</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Códigos QR</a></li>
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Cómo funciona</a></li>
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Quiénes somos</a></li>
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Preguntas frecuentes</a></li>
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Contacto</a></li>
+                <li>
+                  <a 
+                    href="#" 
+                    className="text-gray-800 hover:text-black transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveModal('quienesSomos');
+                    }}
+                  >
+                    Quiénes somos
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#" 
+                    className="text-gray-800 hover:text-black transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveModal('mision');
+                    }}
+                  >
+                    Misión
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#" 
+                    className="text-gray-800 hover:text-black transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveModal('vision');
+                    }}
+                  >
+                    Visión
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#" 
+                    className="text-gray-800 hover:text-black transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveModal('valores');
+                    }}
+                  >
+                    Valores
+                  </a>
+                </li>
               </ul>
             </div>
             
@@ -385,6 +494,42 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      
+      {/* Modal dinámico para mostrar el contenido seleccionado */}
+      {activeModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-xl w-full max-w-xl max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-gray-900">{modalContent[activeModal].title}</h2>
+                <button 
+                  onClick={() => setActiveModal(null)}
+                  className="text-gray-500 hover:text-gray-700 focus:outline-none"
+                >
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              
+              <div className="space-y-4">
+                <p className="text-gray-700">
+                  {modalContent[activeModal].content}
+                </p>
+              </div>
+              
+              <div className="mt-6 flex justify-end">
+                <button
+                  onClick={() => setActiveModal(null)}
+                  className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
