@@ -23,7 +23,7 @@ const Hero = () => {
   
   const videoUrl = "https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/news.mp4"; 
   // URL WhatsApp con mensaje predefinido
-  const whatsappUrl = "https://wa.me/5491166023362?text=Hola!%20Quisiera%20consultar%20sobre%20Lazos%20de%20Vida.";
+  const whatsappUrl = "https://wa.link/bi4zru";
 
   const videoRef = useRef(null);
   const [isMutedByUser, setIsMutedByUser] = useState(true);

@@ -1,20 +1,33 @@
 import React, { useState } from 'react';
 import Wave from 'react-wavify';
-import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
+import {
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaTiktok,
+  FaWhatsapp
+} from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import logoImage from '../assets/images/derecho.png';
+// Eliminada la importación de Iconify
 
 const Footer = () => {
   // Estado para controlar cuál modal está abierto (null si ninguno está abierto)
   const [activeModal, setActiveModal] = useState(null);
 
-  // URL WhatsApp con mensaje predefinido - MISMO DEL HERO
-  const whatsappUrl = "https://wa.me/5491166023362?text=Hola!%20Quisiera%20consultar%20sobre%20Lazos%20de%20Vida.";
+  // URL WhatsApp actualizada con el link del cliente
+  const whatsappUrl = "https://wa.link/bi4zru";
+
+  // Links de redes sociales
+  const socialLinks = {
+    facebook: "https://www.facebook.com/share/16D7GtH55G/?mibextid=wwXIfr",
+    instagram: "https://www.instagram.com/lazosdevidaqr?igsh=YnVuZDZ2NnVmMHd1",
+    tiktok: "http://www.tiktok.com/@lazosdevidaqr"
+  };
 
   // CONFIGURACIÓN DEL LOGO: Ajusta estos valores para mover y redimensionar el logo
   const logoSize = {
-    mobile: 'h-40',   // Tamaño intermedio para mobile
-    desktop: 'h-80',  // Tamaño original para desktop
+    mobile: 'h-40', // Tamaño intermedio para mobile
+    desktop: 'h-80', // Tamaño original para desktop
   };
 
   // Estado para manejar el desplegable de secciones en móvil
@@ -29,19 +42,19 @@ const Footer = () => {
     }
   };
 
-  // Contenido del modal para cada sección
+  // Contenido del modal para cada sección (con correcciones ortográficas)
   const modalContent = {
     quienesSomos: {
-      title: "Quienes Somos",
-      content: "Somos una empresa dedicada a la producción y desarrollo de biografías, historias y recuerdos pasmados digitalmente con el escaneo de código QR, nos dedicamos a construir memorias de seres queridos que no están en presencia física hoy, pero en los corazones de sus familiares y amigos perduran lazos y recuerdos que los unen, es por eso que a través de la impresión de una placa QR, los familiares podrán conectar por medio de recuerdos e historias de una forma digital con sus seres queridos fallecidos y mantener viva su historia."
+      title: "Quiénes Somos",
+      content: "Somos una empresa dedicada a la producción y desarrollo de biografías, historias y recuerdos plasmados digitalmente con el escaneo de código QR. Nos dedicamos a construir memorias de seres queridos que no están en presencia física hoy, pero en los corazones de sus familiares y amigos perduran lazos y recuerdos que los unen. Es por eso que, a través de la impresión de una placa QR, los familiares podrán conectar por medio de recuerdos e historias de una forma digital con sus seres queridos fallecidos y mantener viva su historia."
     },
     mision: {
       title: "Misión",
-      content: "Brindar la mejor experiencia digital a través del desarrollo de historias, recuerdos, biografías, diseñando un producto de alta calidad, una historia plasmada digitalmente que pueda HONRAR Y DEJAR un recuerdo imborrable en los corazones de todas las familias que perdieron un ser querido, revivir recuerdos, inspirar a través de historias."
+      content: "Brindar la mejor experiencia digital a través del desarrollo de historias, recuerdos y biografías, diseñando un producto de alta calidad, una historia plasmada digitalmente que pueda honrar y dejar un recuerdo imborrable en los corazones de todas las familias que perdieron un ser querido, revivir recuerdos e inspirar a través de historias."
     },
     vision: {
       title: "Visión",
-      content: "Llegar a todas las familias de Chile, dejar una huella imborrable en los corazones de las personas con recuerdos que marquen para siempre sus vidas, lograr a través de una placa QR DIGITA PERSONALIZADO, el desarrollo de historias sentimientos, expresiones y muestras de cariño de familiares y amigos cercanos."
+      content: "Llegar a todas las familias de Chile, dejar una huella imborrable en los corazones de las personas con recuerdos que marquen para siempre sus vidas, lograr a través de una placa QR DIGITAL PERSONALIZADA, el desarrollo de historias, sentimientos, expresiones y muestras de cariño de familiares y amigos cercanos."
     },
     valores: {
       title: "Valores",
@@ -50,10 +63,10 @@ const Footer = () => {
   };
 
   return (
-    <div className="relative">
-      {/* Contenedor con posición relativa para todo el footer */}
+    <div className="relative"> {/* Etiqueta de apertura principal */}
+      {/* Contenido dentro del div principal */}
       <div className="relative overflow-hidden bg-white">
-        {/* Altura reducida en móviles para las olas */}
+        {/* Olas */}
         <div className="relative h-12 md:h-16">
           <Wave
             fill="rgba(183, 198, 231, 0.6)"
@@ -68,7 +81,6 @@ const Footer = () => {
           />
         </div>
 
-        {/* Segunda capa de ola - reducida en móvil */}
         <div className="absolute top-4 md:top-6 left-0 right-0 h-12 md:h-16">
           <Wave
             fill="rgba(183, 198, 231, 0.8)"
@@ -83,7 +95,6 @@ const Footer = () => {
           />
         </div>
 
-        {/* Tercera capa de ola - reducida en móvil */}
         <div className="absolute top-8 md:top-12 left-0 right-0 h-12 md:h-16">
           <Wave
             fill="#B3C6E7"
@@ -115,7 +126,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bloque logo flotante - con posicionamiento responsivo */}
+      {/* Bloque logo flotante */}
       <div className="absolute z-10 left-1/2 transform -translate-x-1/2 md:left-8 md:transform-none" style={{ top: '40px', }}>
         <div className="transform hover:scale-110 transition-transform duration-300">
           <img
@@ -126,7 +137,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Footer sin espacios ni márgenes con respecto a las olas */}
+      {/* Footer principal */}
       <footer id="contacto" className="relative text-gray-900" style={{ backgroundColor: '#FFFFFF', marginTop: '-2px' }}>
 
         <style jsx>{`
@@ -139,7 +150,7 @@ const Footer = () => {
               d: path("M0,20 Q300,45 600,15 T1200,20 V30 H0 Z");
             }
             33% {
-              d: path("M0,20 Q300,0 600,30 T1200,20 V30 H0 Z");
+              d: path("M0,0 600,30 T1200,20 V30 H0 Z");
             }
             66% {
               d: path("M0,15 Q300,35 600,5 T1200,15 V30 H0 Z");
@@ -151,12 +162,12 @@ const Footer = () => {
         `}</style>
 
         <div className="container mx-auto px-4 py-8 font-lora">
-          {/* Versión móvil: Formato acordeón para las secciones */}
+          {/* Versión móvil */}
           <div className="md:hidden">
-            {/* Espaciador para el logo centrado - aumentado para el logo más grande */}
+            {/* Espaciador para el logo */}
             <div className="h-40 mb-4"></div>
 
-            {/* Sección Enlaces Rápidos (acordeón en móvil) */}
+            {/* Sección Enlaces Rápidos (acordeón) */}
             <div className="border-b border-gray-200 py-2">
               <button
                 onClick={() => toggleSection('descubre')}
@@ -226,7 +237,7 @@ const Footer = () => {
               )}
             </div>
 
-            {/* Sección Legal (acordeón en móvil) */}
+            {/* Sección Legal (acordeón) */}
             <div className="border-b border-gray-200 py-2">
               <button
                 onClick={() => toggleSection('legal')}
@@ -252,7 +263,7 @@ const Footer = () => {
               )}
             </div>
 
-            {/* Sección Contacto (acordeón en móvil) */}
+            {/* Sección Contacto (acordeón) */}
             <div className="border-b border-gray-200 py-2">
               <button
                 onClick={() => toggleSection('contacto')}
@@ -272,15 +283,18 @@ const Footer = () => {
                 <div className="space-y-2 py-2 pl-2">
                   <div className="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 0 00-2-2H5a2 0 00-2 2v10a2 0 002 2z" />
                     </svg>
-                    <span className="text-gray-800">info@lazosdevida.com</span>
+                    {/* Correo electrónico con enlace mailto */}
+                    <a href="mailto:info@lazosdevida.com" className="text-gray-800 hover:text-blue-600 transition-colors">
+                      info@lazosdevida.com
+                    </a>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Sección Newsletter (acordeón en móvil) */}
+            {/* Sección Newsletter (acordeón) */}
             <div className="border-b border-gray-200 py-2">
               <button
                 onClick={() => toggleSection('newsletter')}
@@ -315,20 +329,33 @@ const Footer = () => {
               )}
             </div>
 
-            {/* Redes sociales (siempre visible en móvil) - CÓDIGO ACTUALIZADO */}
+            {/* Redes sociales (siempre visible en móvil) */}
             <div className="py-4 flex flex-col items-center">
               <h3 className="text-lg font-semibold mb-3 text-gray-900">Síguenos</h3>
               <div className="flex space-x-6">
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
-                  <FaFacebook size={24} />
+                <a
+                  href={socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-blue-600 transition-colors transform hover:scale-110 duration-200"
+                >
+                  <FaFacebookSquare size={24} />
                 </a>
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
-                  <FaXTwitter size={24} />
+                {/* Eliminado FaXTwitter ya que no está importado */}
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-pink-600 transition-colors transform hover:scale-110 duration-200"
+                >
+                  <FaInstagramSquare size={24} />
                 </a>
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
-                  <FaInstagram size={24} />
-                </a>
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
+                <a
+                  href={socialLinks.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200"
+                >
                   <FaTiktok size={24} />
                 </a>
                 <a
@@ -337,20 +364,20 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-green-500 hover:text-green-600 transition-colors transform hover:scale-110 duration-200"
                 >
-                  <FaWhatsapp size={24} /> {/* Aseguramos que tenga el mismo tamaño */}
+                  <FaWhatsapp size={24} />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Versión de escritorio: grid normal */}
+          {/* Versión de escritorio */}
           <div className="hidden md:grid md:grid-cols-4 md:gap-8">
             {/* Espaciador invisible que ocupa el espacio del logo */}
             <div className="md:col-span-1">
               <div className="invisible h-48"></div>
             </div>
 
-            {/* Enlaces rápidos - Mostrando los cuatro enlaces */}
+            {/* Enlaces rápidos */}
             <div className="md:col-span-1">
               <h3 className="text-lg font-semibold mb-4 text-gray-900">Sobre Lazos de Vida</h3>
               <ul className="space-y-2">
@@ -419,9 +446,12 @@ const Footer = () => {
               <div className="space-y-2">
                 <div className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 0 00-2-2H5a2 0 00-2 2v10a2 0 002 2z" />
                   </svg>
-                  <span className="text-gray-800">info@lazosdevida.com</span>
+                   {/* Correo electrónico con enlace mailto */}
+                  <a href="mailto:info@lazosdevida.com" className="text-gray-800 hover:text-blue-600 transition-colors">
+                    info@lazosdevida.com
+                  </a>
                 </div>
               </div>
             </div>
@@ -444,18 +474,31 @@ const Footer = () => {
               </div>
 
               <h3 className="text-lg font-semibold mt-6 mb-3 text-gray-900">Síguenos</h3>
-              {/* Redes sociales (escritorio) - CÓDIGO ACTUALIZADO */}
+              {/* Redes sociales (escritorio) */}
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
-                  <FaFacebook size={20} />
+                <a
+                  href={socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-blue-600 transition-colors transform hover:scale-110 duration-200"
+                >
+                  <FaFacebookSquare size={20} />
                 </a>
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
-                  <FaXTwitter size={20} />
+                 {/* Eliminado FaXTwitter ya que no está importado */}
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-pink-600 transition-colors transform hover:scale-110 duration-200"
+                >
+                  <FaInstagramSquare size={20} />
                 </a>
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
-                  <FaInstagram size={20} />
-                </a>
-                <a href="#" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200">
+                <a
+                  href={socialLinks.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200"
+                >
                   <FaTiktok size={20} />
                 </a>
                 <a
@@ -464,22 +507,69 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-green-500 hover:text-green-600 transition-colors transform hover:scale-110 duration-200"
                 >
-                  <FaWhatsapp size={20} /> {/* Aseguramos que tenga el mismo tamaño */}
+                  <FaWhatsapp size={20} />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Métodos de pago (centrados) y copyright - versión responsive */}
+          {/* Métodos de pago (centrados) y copyright */}
           <div className="mt-6 md:mt-8 border-t border-gray-300 pt-4 md:pt-6">
-            {/* Métodos de pago centrados y con tamaño ligeramente reducido en móvil */}
+            {/* Métodos de pago centrados usando imágenes */}
             <div className="flex justify-center mb-4">
-              <div className="flex space-x-2 md:space-x-4">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/americanexpress.svg" alt="American Express" className="h-6 w-8 md:h-8 md:w-10 bg-white p-1 rounded hover:scale-110 hover:shadow-md transition-all duration-300" />
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/applepay.svg" alt="Apple Pay" className="h-6 w-8 md:h-8 md:w-10 bg-white p-1 rounded hover:scale-110 hover:shadow-md transition-all duration-300" />
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/visa.svg" alt="Visa" className="h-6 w-8 md:h-8 md:w-10 bg-white p-1 rounded hover:scale-110 hover:shadow-md transition-all duration-300" />
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mastercard.svg" alt="Mastercard" className="h-6 w-8 md:h-8 md:w-10 bg-white p-1 rounded hover:scale-110 hover:shadow-md transition-all duration-300" />
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/paypal.svg" alt="PayPal" className="h-6 w-8 md:h-8 md:w-10 bg-white p-1 rounded hover:scale-110 hover:shadow-md transition-all duration-300" />
+              {/* Ajustado el espacio entre logos (space-x-2 en lugar de space-x-3/5) y tamaño de contenedores/imágenes */}
+              <div className="flex space-x-2 md:space-x-3">
+                {/* Contenedores para imágenes con hover, padding y centrado */}
+                <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}>
+                   <img
+                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/apple.svg" // URL de Apple Pay
+                      alt="Apple Pay"
+                      className="object-contain"
+                      style={{ width: 'auto', height: '35px' }} // Aumentado tamaño de la imagen
+                   />
+                </div>
+                 <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}>
+                   <img
+                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/visa.svg" // URL de Visa
+                      alt="Visa"
+                      className="object-contain"
+                      style={{ width: 'auto', height: '35px' }} // Aumentado tamaño de la imagen
+                   />
+                </div>
+                <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}>
+                   <img
+                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/master.svg" // URL de Mastercard
+                      alt="Mastercard"
+                      className="object-contain"
+                      style={{ width: 'auto', height: '35px' }} // Aumentado tamaño de la imagen
+                   />
+                </div>
+                 <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}>
+                   <img
+                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/paypal.svg" // URL de PayPal
+                      alt="PayPal"
+                      className="object-contain"
+                      style={{ width: 'auto', height: '35px' }} // Aumentado tamaño de la imagen
+                   />
+                </div>
+                {/* American Express - Usando imagen */}
+                <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}> {/* Mismo tamaño de contenedor para consistencia */}
+                   <img
+                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/american.png" // URL de American Express
+                      alt="American Express"
+                      className="object-contain"
+                      style={{ width: 'auto', height: '35px' }} // Mismo tamaño de imagen para consistencia
+                   />
+                </div>
+                {/* Mercado Pago - Usando imagen */}
+                <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}> {/* Mismo tamaño de contenedor para consistencia */}
+                   <img
+                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/mercado.svg" // URL de Mercado Pago
+                      alt="Mercado Pago"
+                      className="object-contain"
+                      style={{ width: 'auto', height: '35px' }} // Mismo tamaño de imagen para consistencia
+                   />
+                </div>
               </div>
             </div>
 
@@ -489,14 +579,13 @@ const Footer = () => {
                 &copy; {new Date().getFullYear()} Lazos de Vida. Todos los derechos reservados.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-xs text-gray-800 hover:text-black">Política de Privacidad</a>
-                <a href="#" className="text-xs text-gray-800 hover:text-black">Términos y Condiciones</a>
+                <span className="text-xs text-gray-500 italic cursor-not-allowed">Política de Privacidad (En desarrollo)</span>
+                <span className="text-xs text-gray-500 italic cursor-not-allowed">Términos y Condiciones (En desarrollo)</span>
               </div>
             </div>
           </div>
         </div>
       </footer>
-
       {/* Modal dinámico para mostrar el contenido seleccionado */}
       {activeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">

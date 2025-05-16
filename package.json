@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",  
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@iconify-icons/logos": "^1.2.36",
     "framer-motion": "^12.6.3",
     "gsap": "^3.12.7",
     "react": "^19.0.0",
