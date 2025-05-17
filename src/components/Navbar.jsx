@@ -32,12 +32,12 @@ const Navbar = () => {
     hover: { scale: 1.18, transition: { duration: 0.3, ease: "easeOut" } }
   };
 
-  // Animación específica para el logo móvil (un poco menos pronunciada en hover)
-  // Añadimos 'whileTap' para la animación al tocar en móviles
+  // Animación específica para el logo móvil
+  // Ajustada la escala del 'tap' para que sea igual a la del hover de escritorio
   const mobileLogoAnimation = {
     rest: { scale: 1.0 },
     hover: { scale: 1.12, transition: { duration: 0.3, ease: "easeOut" } }, // Animación al pasar el mouse (si aplica en algunos dispositivos)
-    tap: { scale: 1.12, transition: { duration: 0.1, ease: "easeOut" } } // Animación al tocar (para móviles)
+    tap: { scale: 1.18, transition: { duration: 0.1, ease: "easeOut" } } // Ajustada la escala al tocar (para móviles)
   };
 
   // Efecto para manejar el scroll y cambiar el estilo de la navbar
