@@ -525,7 +525,7 @@ const Footer = () => {
                       src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/apple-pay-payment-mark-seeklogo.png" // URL de Apple Pay
                       alt="Apple Pay"
                       className="object-contain"
-                      style={{ width: 'auto', height: '35px' }} // Aumentado tamaño de la imagen
+                      style={{ width: 'auto', height: '26px' }} // Aumentado tamaño de la imagen
                    />
                 </div>
                  <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}>
@@ -541,7 +541,7 @@ const Footer = () => {
                       src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/mastercard-modern-design-.svg" // URL de Mastercard
                       alt="Mastercard"
                       className="object-contain"
-                      style={{ width: 'auto', height: '35px' }} // Aumentado tamaño de la imagen
+                      style={{ width: 'auto', height: '24px' }} // Aumentado tamaño de la imagen
                    />
                 </div>
                  <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}>
@@ -558,7 +558,7 @@ const Footer = () => {
                       src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/american-express-seeklogo.png" // URL de American Express
                       alt="American Express"
                       className="object-contain"
-                      style={{ width: 'auto', height: '35px' }} // Mismo tamaño de imagen para consistencia
+                      style={{ width: 'auto', height: '33px' }} // Mismo tamaño de imagen para consistencia
                    />
                 </div>
                 {/* Mercado Pago - Usando imagen */}
@@ -567,7 +567,7 @@ const Footer = () => {
                       src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/mercado-pago-seeklogo.png" // URL de Mercado Pago
                       alt="Mercado Pago"
                       className="object-contain"
-                      style={{ width: 'auto', height: '35px' }} // Mismo tamaño de imagen para consistencia
+                      style={{ width: 'auto', height: '34px' }} // Mismo tamaño de imagen para consistencia
                    />
                 </div>
               </div>
