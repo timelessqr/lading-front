@@ -530,7 +530,7 @@ const Footer = () => {
                 </div>
                  <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}>
                    <img
-                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/visa.svg" // URL de Visa
+                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/visa-seeklogo.png" // URL de Visa
                       alt="Visa"
                       className="object-contain"
                       style={{ width: 'auto', height: '35px' }} // Aumentado tamaño de la imagen
