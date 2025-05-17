@@ -26,16 +26,18 @@ const Navbar = () => {
     // Eliminado el link de twitter
   };
 
-  // Definimos la animación del logo para el efecto hover con mayor escala
+  // Definimos la animación del logo para el efecto hover con mayor escala (escritorio)
   const logoHoverAnimation = {
     rest: { scale: 1.0 },
     hover: { scale: 1.18, transition: { duration: 0.3, ease: "easeOut" } }
   };
 
-  // Animación específica para el logo móvil (un poco menos pronunciada)
-  const mobileLogoHoverAnimation = {
+  // Animación específica para el logo móvil (un poco menos pronunciada en hover)
+  // Añadimos 'whileTap' para la animación al tocar en móviles
+  const mobileLogoAnimation = {
     rest: { scale: 1.0 },
-    hover: { scale: 1.12, transition: { duration: 0.3, ease: "easeOut" } }
+    hover: { scale: 1.12, transition: { duration: 0.3, ease: "easeOut" } }, // Animación al pasar el mouse (si aplica en algunos dispositivos)
+    tap: { scale: 1.12, transition: { duration: 0.1, ease: "easeOut" } } // Animación al tocar (para móviles)
   };
 
   // Efecto para manejar el scroll y cambiar el estilo de la navbar
@@ -82,10 +84,11 @@ const Navbar = () => {
                   href="#" // Reemplaza con el link a la página de inicio si es necesario
                   initial="rest"
                   whileHover="hover"
+                  whileTap="tap" // Añadida animación al tocar
                   animate="rest"
                 >
                   <motion.div
-                    variants={mobileLogoHoverAnimation}
+                    variants={mobileLogoAnimation} // Usamos las variantes actualizadas
                     style={{
                       width: '160px',
                       height: '50px',
