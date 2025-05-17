@@ -6,9 +6,7 @@ import {
   FaTiktok,
   FaWhatsapp
 } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
 import logoImage from '../assets/images/derecho.png';
-// Eliminada la importación de Iconify
 
 const Footer = () => {
   // Estado para controlar cuál modal está abierto (null si ninguno está abierto)
@@ -32,6 +30,9 @@ const Footer = () => {
 
   // Estado para manejar el desplegable de secciones en móvil
   const [openSection, setOpenSection] = useState(null);
+  
+  // Estado para mostrar tooltips
+  const [activeTooltip, setActiveTooltip] = useState(null);
 
   // Función para manejar los desplegables en versión móvil
   const toggleSection = (section) => {
@@ -60,6 +61,17 @@ const Footer = () => {
       title: "Valores",
       content: "Calidad, innovación, compromiso, historia y pasión."
     }
+  };
+
+  // Componente de tooltip personalizado
+  const Tooltip = ({ show, text }) => {
+    if (!show) return null;
+    return (
+      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-gray-700 text-white text-xs rounded whitespace-nowrap">
+        {text}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-700"></div>
+      </div>
+    );
   };
 
   return (
@@ -159,6 +171,53 @@ const Footer = () => {
               d: path("M0,25 Q300,10 600,35 T1200,25 V30 H0 Z");
             }
           }
+          
+          .tooltip {
+            position: relative;
+          }
+          
+          .tooltip .tooltiptext {
+            visibility: hidden;
+            width: auto;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+          }
+          
+          .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+          }
+          
+          /* Mostrar tooltip en hover para escritorio */
+          .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+          }
+          
+          /* Solución para móviles - mostrar al tocar */
+          @media (hover: none) {
+            .tooltip:active .tooltiptext {
+              visibility: visible;
+              opacity: 1;
+            }
+          }
         `}</style>
 
         <div className="container mx-auto px-4 py-8 font-lora">
@@ -255,10 +314,22 @@ const Footer = () => {
               </button>
               {openSection === 'legal' && (
                 <ul className="space-y-2 py-2 pl-2">
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Envíos</a></li>
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Devoluciones y reembolsos</a></li>
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Privacidad</a></li>
-                  <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Términos del servicio</a></li>
+                  <li className="relative tooltip">
+                    <span className="text-gray-400 cursor-not-allowed">Envíos</span>
+                    <span className="tooltiptext">En desarrollo</span>
+                  </li>
+                  <li className="relative tooltip">
+                    <span className="text-gray-400 cursor-not-allowed">Devoluciones y reembolsos</span>
+                    <span className="tooltiptext">En desarrollo</span>
+                  </li>
+                  <li className="relative tooltip">
+                    <span className="text-gray-400 cursor-not-allowed">Privacidad</span>
+                    <span className="tooltiptext">En desarrollo</span>
+                  </li>
+                  <li className="relative tooltip">
+                    <span className="text-gray-400 cursor-not-allowed">Términos del servicio</span>
+                    <span className="tooltiptext">En desarrollo</span>
+                  </li>
                 </ul>
               )}
             </div>
@@ -282,10 +353,7 @@ const Footer = () => {
               {openSection === 'contacto' && (
                 <div className="space-y-2 py-2 pl-2">
                   <div className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 0 00-2-2H5a2 0 00-2 2v10a2 0 002 2z" />
-                    </svg>
-                    {/* Correo electrónico con enlace mailto */}
+                    {/* Removido el icono SVG que causaba el caracter no deseado */}
                     <a href="mailto:info@lazosdevida.com" className="text-gray-800 hover:text-blue-600 transition-colors">
                       info@lazosdevida.com
                     </a>
@@ -436,19 +504,28 @@ const Footer = () => {
             <div className="md:col-span-1">
               <h3 className="text-lg font-semibold mb-4 text-gray-900">Legal</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Envíos</a></li>
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Devoluciones y reembolsos</a></li>
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Privacidad</a></li>
-                <li><a href="#" className="text-gray-800 hover:text-black transition-colors">Términos del servicio</a></li>
+                <li className="relative tooltip">
+                  <span className="text-gray-400 cursor-not-allowed">Envíos</span>
+                  <span className="tooltiptext">En desarrollo</span>
+                </li>
+                <li className="relative tooltip">
+                  <span className="text-gray-400 cursor-not-allowed">Devoluciones y reembolsos</span>
+                  <span className="tooltiptext">En desarrollo</span>
+                </li>
+                <li className="relative tooltip">
+                  <span className="text-gray-400 cursor-not-allowed">Privacidad</span>
+                  <span className="tooltiptext">En desarrollo</span>
+                </li>
+                <li className="relative tooltip">
+                  <span className="text-gray-400 cursor-not-allowed">Términos del servicio</span>
+                  <span className="tooltiptext">En desarrollo</span>
+                </li>
               </ul>
 
               <h3 className="text-lg font-semibold mt-6 mb-3 text-gray-900">Contacto</h3>
               <div className="space-y-2">
                 <div className="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 0 00-2-2H5a2 0 00-2 2v10a2 0 002 2z" />
-                  </svg>
-                   {/* Correo electrónico con enlace mailto */}
+                  {/* Removido el icono SVG que causaba el caracter no deseado */}
                   <a href="mailto:info@lazosdevida.com" className="text-gray-800 hover:text-blue-600 transition-colors">
                     info@lazosdevida.com
                   </a>
@@ -579,8 +656,15 @@ const Footer = () => {
                 &copy; {new Date().getFullYear()} Lazos de Vida. Todos los derechos reservados.
               </p>
               <div className="flex space-x-4">
-                <span className="text-xs text-gray-500 italic cursor-not-allowed">Política de Privacidad (En desarrollo)</span>
-                <span className="text-xs text-gray-500 italic cursor-not-allowed">Términos y Condiciones (En desarrollo)</span>
+                {/* Enlaces con tooltip */}
+                <span className="relative tooltip text-xs text-gray-500 cursor-not-allowed">
+                  Política de Privacidad
+                  <span className="tooltiptext">En desarrollo</span>
+                </span>
+                <span className="relative tooltip text-xs text-gray-500 cursor-not-allowed">
+                  Términos y Condiciones
+                  <span className="tooltiptext">En desarrollo</span>
+                </span>
               </div>
             </div>
           </div>
