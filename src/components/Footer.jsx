@@ -564,7 +564,7 @@ const Footer = () => {
                 {/* Mercado Pago - Usando imagen */}
                 <div className="hover:scale-110 hover:shadow-md transition-all duration-300 rounded bg-white p-0.5 flex items-center justify-center" style={{ width: '55px', height: '40px' }}> {/* Mismo tamaño de contenedor para consistencia */}
                    <img
-                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/mercado.svg" // URL de Mercado Pago
+                      src="https://pub-aa35b927bb064c1e8c7e97ebdbbec0c1.r2.dev/mercado-pago-seeklogo.png" // URL de Mercado Pago
                       alt="Mercado Pago"
                       className="object-contain"
                       style={{ width: 'auto', height: '35px' }} // Mismo tamaño de imagen para consistencia
