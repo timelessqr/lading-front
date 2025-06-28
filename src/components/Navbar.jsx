@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  FaFacebook,
+  FaFacebookSquare,
   FaTiktok,
   FaInstagramSquare,
   FaWhatsapp,
@@ -124,7 +124,7 @@ const Navbar = () => {
             {/* Versión Desktop */}
             <div className="hidden md:flex items-center space-x-4"> {/* Aumentado espacio */}
               {/* Links de redes sociales en escritorio con animación hover */}
-              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors transform hover:scale-110 duration-200" aria-label="Facebook"><FaFacebook size={20} /></a> {/* Aumentado tamaño y ajuste de color */}
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors transform hover:scale-110 duration-200" aria-label="Facebook"><FaFacebookSquare size={20} /></a> {/* Aumentado tamaño y ajuste de color */}
               <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-pink-600 transition-colors transform hover:scale-110 duration-200" aria-label="Instagram"><FaInstagramSquare size={20} /></a> {/* Aumentado tamaño y ajuste de color */}
               <a href={socialLinks.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-black transition-colors transform hover:scale-110 duration-200" aria-label="TikTok"><FaTiktok size={20} /></a> {/* Aumentado tamaño y ajuste de color */}
             </div>
@@ -188,7 +188,7 @@ const Navbar = () => {
                   <h3 className="font-medium text-gray-900 mb-3">Redes sociales</h3>
                   <div className="grid grid-cols-2 gap-4"> {/* Ajustado a grid para mejor distribución */}
                     {/* Links de redes sociales en menú móvil con animación hover */}
-                    <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-800 hover:text-blue-600 transform hover:scale-110 duration-200"><FaFacebook size={18} /> <span>Facebook</span></a> {/* Ajuste de color */}
+                    <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-800 hover:text-blue-600 transform hover:scale-110 duration-200"><FaFacebookSquare size={18} /> <span>Facebook</span></a> {/* Ajuste de color */}
                     <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-800 hover:text-pink-600 transform hover:scale-110 duration-200"><FaInstagramSquare size={18} /> <span>Instagram</span></a> {/* Ajuste de color */}
                     <a href={socialLinks.tiktok} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-800 hover:text-black transform hover:scale-110 duration-200"><FaTiktok size={18} /> <span>TikTok</span></a> {/* Ajuste de color */}
                   </div>
